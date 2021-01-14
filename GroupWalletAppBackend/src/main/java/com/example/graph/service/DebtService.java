@@ -2,6 +2,8 @@ package com.example.graph.service;
 
 import com.example.graph.algorithm.OptimizeGraph;
 import com.example.graph.algorithm.OptimizedEdge;
+import com.example.graph.dto.debt.CreditorObject;
+import com.example.graph.dto.user.UserDetailObject;
 import com.example.graph.model.Group;
 import com.example.graph.model.Member;
 import com.example.graph.model.Owes;
@@ -28,7 +30,7 @@ public class DebtService {
     @Autowired
     private GroupRepository groupRepository;
 
-    public List<User> getCreditorsForUser(@NotNull Long userId) {
+    public List<CreditorObject> getCreditorsForUser(@NotNull Long userId) {
         Optional<User> userFromRepository = userRepository.findById(userId);
 
         if (!userFromRepository.isPresent()) {
@@ -37,7 +39,19 @@ public class DebtService {
 
         List<User> creditorsByUser = userRepository.findCreditorsByUser(userId);
 
-        return creditorsByUser;
+        creditorsByUser = creditorsByUser.stream().map(u -> userRepository.findById(u.getId()).get()).collect(Collectors.toList());
+
+        List<CreditorObject> result = creditorsByUser.stream().map(u -> {
+            Owes owes = u.getDebtors().stream()
+                    .filter(d -> d.getDebtor().getId().equals(userId))
+                    .findFirst()
+                    .get();
+
+            UserDetailObject userDetailObject = new UserDetailObject(u.getUsername(), u.getEmail());
+            return new CreditorObject(userDetailObject, owes.getDebt());
+        }).collect(Collectors.toList());
+
+        return result;
     }
 
     public List<Owes> getDebtorsForUser(@NotNull Long userId) {

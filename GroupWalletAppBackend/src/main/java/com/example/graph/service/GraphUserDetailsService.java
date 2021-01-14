@@ -3,7 +3,6 @@ package com.example.graph.service;
 import com.example.graph.model.User;
 import com.example.graph.repository.UserRepository;
 import com.example.graph.security.GraphUserDetails;
-import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.security.core.Authentication;

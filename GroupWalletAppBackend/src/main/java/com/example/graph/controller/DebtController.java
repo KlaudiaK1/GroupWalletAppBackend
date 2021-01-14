@@ -1,5 +1,6 @@
 package com.example.graph.controller;
 
+import com.example.graph.dto.debt.CreditorObject;
 import com.example.graph.dto.debt.GroupDebtObject;
 import com.example.graph.dto.debt.PayObject;
 import com.example.graph.model.Owes;
@@ -36,7 +37,7 @@ public class DebtController {
 
     @GetMapping("/list-creditors")
     @ResponseStatus(HttpStatus.OK)
-    public List<User> listYourCreditors() {
+    public List<CreditorObject> listYourCreditors() {
         User userFromSession = graphUserDetailsService.getUserFromSession();
 
         return debtService.getCreditorsForUser(userFromSession.getId());

@@ -5,6 +5,7 @@ import com.example.graph.dto.user.FindUserObject;
 import com.example.graph.exception.BadRequestException;
 import com.example.graph.exception.NotFoundException;
 import com.example.graph.model.User;
+import com.example.graph.service.GraphUserDetailsService;
 import com.example.graph.service.UserService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,18 @@ public class UserController {
     private UserService userService;
 
     @Autowired
+    private GraphUserDetailsService graphUserDetailsService;
+
+    @Autowired
     private ModelMapper modelMapper;
+
+    @GetMapping("/me")
+    @ResponseStatus(HttpStatus.OK)
+    public User findUser() {
+        Optional<User> userFromRepository = userService.findById(graphUserDetailsService.getUserFromSession().getId());
+
+        return userFromRepository.get();
+    }
 
     @GetMapping("/find")
     @ResponseStatus(HttpStatus.OK)
