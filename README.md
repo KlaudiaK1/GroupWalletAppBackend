@@ -1,2 +1,2 @@
 # GroupWalletAppBackend
-Application to share expenses based on graph database
+Backend for application to share expenses based on graph database
