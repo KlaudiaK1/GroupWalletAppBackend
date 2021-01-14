@@ -63,30 +63,30 @@ public class GraphInitializer implements InitializingBean {
         User luke;
         User mallory;
         //users
-        user1 = new User( "Alice", "alice@alice.com", passwordEncoder.encode("alice"));
+        user1 = new User( "Alice", "alice@alice.com", passwordEncoder.encode("alice111"));
         userRepository.save(user1);
-        user2 = new User( "Gabe", "gabe@gabe.com", passwordEncoder.encode("gabe"));
+        user2 = new User( "Gabe", "gabe@gabe.com", passwordEncoder.encode("gabe111"));
         userRepository.save(user2);
-        user3 = new User( "Fred", "fred@fred.com", passwordEncoder.encode("fred"));
+        user3 = new User( "Fred", "fred@fred.com", passwordEncoder.encode("fred111"));
         userRepository.save(user3);
-        user4 = new User( "Ema", "ema@ema.com", passwordEncoder.encode("ema"));
+        user4 = new User( "Ema", "ema@ema.com", passwordEncoder.encode("ema111"));
         userRepository.save(user4);
-        user5 = new User( "David", "david@david.com", passwordEncoder.encode("david"));
+        user5 = new User( "David", "david@david.com", passwordEncoder.encode("david111"));
         userRepository.save(user5);
-        user6 = new User( "Charlie", "cgarlie@charlie.com", passwordEncoder.encode("charlie"));
+        user6 = new User( "Charlie", "cgarlie@charlie.com", passwordEncoder.encode("charlie111"));
         userRepository.save(user6);
-        user7 = new User( "Bob", "bob@bob.com", passwordEncoder.encode("bob"));
+        user7 = new User( "Bob", "bob@bob.com", passwordEncoder.encode("bob111"));
         userRepository.save(user7);
 
-        grace = new User( "Grace", "grace@grace.com", passwordEncoder.encode("grace"));
+        grace = new User( "Grace", "grace@grace.com", passwordEncoder.encode("grace111"));
         userRepository.save(grace);
-        ivan = new User( "Ivan", "ivan@ivan.com", passwordEncoder.encode("ivan"));
+        ivan = new User( "Ivan", "ivan@ivan.com", passwordEncoder.encode("ivan111"));
         userRepository.save(ivan);
-        judy = new User( "Judy", "judy@judy.com", passwordEncoder.encode("judy"));
+        judy = new User( "Judy", "judy@judy.com", passwordEncoder.encode("judy111"));
         userRepository.save(judy);
-        luke = new User( "Luke", "luke@luke.com", passwordEncoder.encode("luke"));
+        luke = new User( "Luke", "luke@luke.com", passwordEncoder.encode("luke111"));
         userRepository.save(luke);
-        mallory = new User( "Mallory", "mallory@mallory.com", passwordEncoder.encode("mallory"));
+        mallory = new User( "Mallory", "mallory@mallory.com", passwordEncoder.encode("mallory111"));
         userRepository.save(mallory);
 
         //groups and members
